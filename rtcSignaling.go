@@ -103,7 +103,7 @@ func RtcSignaling(secure bool, webroot string, sigport int, stunport int, setNew
 	}
 }
 
-// handle all client websockets sessions
+// WsHandler handles all client websockets sessions
 func WsHandler(cws *websocket.Conn) {
 	fmt.Println(TAG, "WsHandler start new client session...")
 	done := make(chan bool)
@@ -111,7 +111,7 @@ func WsHandler(cws *websocket.Conn) {
 	<-done
 }
 
-// handle one complete websockets session
+// WsSessionHandler handles one complete websockets session
 func WsSessionHandler(cws *websocket.Conn, done chan bool) {
 	var myClientId string
 	var roomName string
